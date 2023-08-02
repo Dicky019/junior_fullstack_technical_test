@@ -3,18 +3,19 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "./components/ui/accordion";
-import { comments } from "./data/comments-dummy";
-import { fruits } from "./data/fruits-dummy";
-import { jawaban5 } from "./services/comment-service";
-import { jawaban1, jawaban2, jawaban3 } from "./services/fruits-services";
+} from "@/components/ui/accordion";
+import { buttonVariants } from "@/components/ui/button";
+import { comments } from "@/data/comments-dummy";
+import { fruits } from "@/data/fruits-dummy";
+import { jawaban5 } from "@/services/comment-service";
+import { jawaban1, jawaban2, jawaban3 } from "@/services/fruits-services";
 
 interface IPertanyaanJawaban {
   pertanyaan: string;
   jawaban: React.ReactNode;
 }
 
-export default function App() {
+export default function Home() {
   const buahYangDimiliki = jawaban1(fruits);
   const { jumlahWadah, massingBuah } = jawaban2(fruits);
   const totalStok = jawaban3(fruits);
@@ -67,6 +68,20 @@ export default function App() {
           Jumlah Komentar:{" "}
           <span className="text-primary">{jumlahKomentar}</span>
         </div>
+      ),
+    },
+    {
+      pertanyaan:
+        "6. Buatlah minimal 1 halaman untuk memperkenalkan sebuah UMKM. Desain bebas. Buatlah semenarik mungkin. Boleh dibuat sebagai website ataupun mobile app (bebas pilih). Jika diperlukan, diperbolehkan untuk membuat backend sederhana.",
+      jawaban: (
+        <a
+          className={buttonVariants({
+            variant: "outline",
+          })}
+          href="/kreasi-handmade-produk"
+        >
+          Goto kreasi-handmade-produk
+        </a>
       ),
     },
   ];
